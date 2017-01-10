@@ -15,6 +15,8 @@ public class TextController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	
+		if (Input.GetKey(KeyCode.Escape))		{Application.Quit();}
 		print(myState);
 		if (myState == States.cell)					{state_cell();}
 		else if (myState == States.sheets)			{state_sheets();}
@@ -166,7 +168,8 @@ public class TextController : MonoBehaviour {
 	void state_freedom (){
 		text.text = "You've made it! Congratulations! " +
 					"Want to try one more time?\n\n" +
-					"Press S to start again.";
-		if (Input.GetKeyDown(KeyCode.S))		{myState = States.cell;} 
+					"Press S to start again, Esc key to exit.";
+		if (Input.GetKeyDown(KeyCode.S))		{myState = States.cell;}
+		if (Input.GetKey(KeyCode.Escape))		{Application.Quit();}
 	}	
 }
